@@ -1,0 +1,506 @@
+Activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" 
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:orientation="vertical" 
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+
+<EditText
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="Enter First Number" 
+android:id="@+id/num1" a
+ndroid:textSize="20sp" 
+android:textAlignment="center"
+android:textColor="@color/design_default_color_secondary"/>
+
+<EditText
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:hint="Enter Second Number"
+android:id="@+id/num2" 
+android:textSize="20sp" 
+android:textAlignment="center"
+android:textColor="@color/design_default_color_secondary"/>
+
+<TextView 
+android:layout_width="match_parent"
+android:layout_height="wrap_content" 
+android:hint="Result"
+android:id="@+id/result"
+android:textSize="20sp" 
+android:textAlignment="center"
+android:textColor="@color/design_default_color_secondary"	/>
+
+<LinearLayout 
+android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:layout_gravity="center" 
+android:orientation="horizontal">
+
+<Button
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/seven" 
+android:text="7" 
+android:textAlignment="center"
+android:onClick="seven"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/eight"
+android:text="8"
+android:textAlignment="center" 
+android:onClick="eight"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/nine"
+android:text="9" 
+android:textAlignment="center" 
+android:onClick="nine"	/>
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content"
+android:id="@+id/divide"
+android:text="/" 
+android:textAlignment="center" 
+android:onClick="divide"	/>
+
+
+</LinearLayout>
+
+<LinearLayout android:layout_width="wrap_content" 
+android:layout_height="wrap_content"
+android:layout_gravity="center"
+android:orientation="horizontal">
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/four"
+android:text="4" 
+android:textAlignment="center" 
+android:onClick="four"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/five" 
+android:text="5" 
+android:textAlignment="center"
+android:onClick="five"	/>
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/six"
+android:text="6"
+android:textAlignment="center"
+android:onClick="six"	/>
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/multiply" 
+android:text="*" 
+android:textAlignment="center" 
+android:onClick="multiply"	/>
+
+
+</LinearLayout>
+
+<LinearLayout android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:layout_gravity="center"
+android:orientation="horizontal">
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/one"
+android:text="1"
+android:textAlignment="center" 
+android:onClick="one"	/>
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/two"
+android:text="2" 
+android:textAlignment="center" 
+android:onClick="two"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/three" 
+android:text="3" 
+android:textAlignment="center"
+android:onClick="three"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/minus" 
+android:text="-" 
+android:textAlignment="center"
+android:onClick="sub"	/>
+
+</LinearLayout>
+
+<LinearLayout android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:layout_gravity="center"
+android:orientation="horizontal">
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/dot"
+android:text="." 
+android:textAlignment="center" 
+android:onClick="dot"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/zero"
+android:text="0" 
+android:textAlignment="center" 
+android:onClick="zero"	/>
+
+<Button android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/equal"
+android:text="=" 
+android:textAlignment="center"
+android:onClick="compute"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/add"
+android:text="+"
+android:textAlignment="center" 
+android:onClick="add"	/>
+
+
+</LinearLayout>
+
+<LinearLayout android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_gravity="center" 
+android:orientation="horizontal">
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/clear_one_digit_at_a_time" 
+android:text="C" 
+android:textAlignment="center"
+android:onClick="clear_one_digit_at_a_time"	/>
+
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/clear_one_field_completly"
+android:text="CE"
+android:textAlignment="center"
+android:onClick="clear_one_field_completly"	/>
+
+<Button android:layout_width="wrap_content"
+android:layout_height="wrap_content" 
+android:id="@+id/all_clear"
+android:textAlignment="center"
+android:text="AC" 
+android:onClick="all_clear"	/>
+</LinearLayout>
+
+</LinearLayout>
+
+/////////java
+
+package com.example.labpgm2;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View; 
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+EditText number1, number2;
+TextView res; char op;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState); 
+setContentView(R.layout.activity_main);
+number1=findViewById(R.id.num1); 
+number2=findViewById(R.id.num2);
+res=findViewById(R.id.result);
+
+}
+
+public void one(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("1");
+}
+else if(number2.hasFocus())
+{
+number2.append("1");
+
+else
+{
+ 
+}
+
+
+Toast.makeText(this, "Please get the focus of First or second
+ 
+number", Toast.LENGTH_LONG).show();
+}
+}
+public void two(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("2");
+}
+else if(number2.hasFocus())
+{
+number2.append("2");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void three(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("3");
+}
+else if(number2.hasFocus())
+{
+number2.append("3");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void four(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("4");
+}
+else if(number2.hasFocus())
+{
+number2.append("4");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void five(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("5");
+}
+else if(number2.hasFocus())
+{
+number2.append("5");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void six(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("6");
+}
+else if(number2.hasFocus())
+{
+number2.append("6");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void seven(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("7");
+}
+else if(number2.hasFocus())
+{
+number2.append("7");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void eight(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("8");
+}
+else if(number2.hasFocus())
+{
+number2.append("8");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+public void nine(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("9");
+}
+else if(number2.hasFocus())
+{
+number2.append("9");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void zero(View v)
+{
+if(number1.hasFocus())
+{
+number1.append("0");
+}
+else if(number2.hasFocus())
+{
+number2.append("0");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+
+public void dot(View v)
+{
+if(number1.hasFocus())
+{
+number1.append(".");
+}
+else if(number2.hasFocus())
+{
+number2.append(".");
+}
+else
+{
+Toast.makeText(this, "Please get the focus of First or second
+number", Toast.LENGTH_LONG).show();
+}
+}
+public void add(View v)
+{
+op='+';
+}
+public void sub(View v)
+{
+op='-';
+}
+public void multiply(View v)
+{
+op='*';
+}
+public void divide(View v)
+{
+op='/';
+}
+public void compute(View v)
+{
+float n1,n2,r;
+switch(op)
+{
+case '+':	n1=Float.parseFloat(number1.getText().toString());
+n2=Float.parseFloat(number2.getText().toString()); r=n1+n2;
+res.setText(""+n1+"+"+n2+"="+r); break;
+
+case '-':	n1=Float.parseFloat(number1.getText().toString());
+n2=Float.parseFloat(number2.getText().toString()); r=n1-n2;
+res.setText(""+n1+"-"+n2+"="+r); break;
+
+case '*':	n1=Float.parseFloat(number1.getText().toString());
+n2=Float.parseFloat(number2.getText().toString()); r=n1*n2;
+res.setText(""+n1+"*"+n2+"="+r);
+break;
+
+case '/':	n1=Float.parseFloat(number1.getText().toString());
+n2=Float.parseFloat(number2.getText().toString()); r=n1/n2;
+res.setText(""+n1+"/"+n2+"="+r); break;
+}
+}
+
+public void all_clear(View v)
+{
+number1.setText(""); number2.setText(""); res.setText("");
+}
+
+public void clear_one_field_completly(View v)
+{
+if(number1.hasFocus())
+{
+number1.setText(""); res.setText("");
+}
+else if (number2.hasFocus())
+{
+number2.setText(""); res.setText("");
+}
+else
+{
+Toast.makeText(this, "Please click on Number1/Number2",
+Toast.LENGTH_LONG).show();
+}
+}
+public void clear_one_digit_at_a_time(View v)
+{
+if(number1.hasFocus())
+{
+String n; n=number1.getText().toString(); n=n.substring(0,n.length()-1);
+number1.setText(n);
+}
+else if(number2.hasFocus())
+{
+String n; n=number2.getText().toString(); n=n.substring(0,n.length()-1);
+number2.setText(n);
+}
+else
+{
+Toast.makeText(this, "Please click on Number1/Number2",
+Toast.LENGTH_LONG).show();
+}
+}
+}
