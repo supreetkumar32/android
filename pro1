@@ -1,0 +1,127 @@
+
+Pro 1
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="326dp"
+        android:layout_height="85dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="86dp"
+        android:layout_marginRight="86dp"
+        android:layout_marginBottom="550dp"
+        android:text="BANGALORE INSTITUTE OF TECHNOLOGY"
+        android:textAlignment="center"
+        android:textColor="#D34848"
+        android:textSize="24sp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="541dp"
+        android:background="#D34848" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="190dp"
+        android:layout_height="76dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="111dp"
+        android:layout_marginRight="111dp"
+        android:layout_marginBottom="459dp"
+        android:text="Vijaya Kumar N L"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#314DDC"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView2" 
+android:layout_width="190dp" 
+android:layout_height="76dp"
+android:layout_alignParentEnd="true"
+android:layout_alignParentRight="true" 
+android:layout_alignParentBottom="true" 
+android:layout_marginEnd="112dp"
+android:layout_marginRight="112dp" 
+android:layout_marginBottom="422dp" 
+android:text="Programmer"
+ android:textAlignment="center"
+ android:textColor="#D32782"
+ android:textSize="16sp" />
+
+ <TextView android:id="@+id/textView2"
+ android:layout_width="190dp" 
+android:layout_height="76dp"
+ android:layout_alignParentEnd="true"
+   android:layout_alignParentRight="true"
+   android:layout_alignParentBottom="true"
+ android:layout_marginEnd="113dp"
+ android:layout_marginRight="113dp" 
+android:layout_marginBottom="384dp"
+ android:text="9663208741" 
+android:textAlignment="center"
+ android:textColor="#D32782"
+ android:textSize="16sp" />
+
+    <TextView android:id="@+id/textView2" 
+android:layout_width="349dp"
+ android:layout_height="78dp" 
+android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" 
+        android:layout_alignParentBottom="true"
+ android:layout_marginEnd="32dp"
+ android:layout_marginRight="32dp"
+ android:layout_marginBottom="352dp"
+        android:text="Dept. of Information Science and Engineering" 
+        android:textAlignment="center"
+        android:textColor="#D32782" 
+android:textSize="16sp" />
+
+    <TextView android:id="@+id/textView2"
+ android:layout_width="314dp"
+ android:layout_height="77dp" 
+android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" 
+        android:layout_marginEnd="49dp"
+ android:layout_marginRight="49dp" 
+android:layout_marginBottom="312dp"
+        android:text="Email : vijayakumarnl@bit-bangalore.edu.in" 
+        android:textAlignment="center"
+ android:textColor="#D32782"
+        android:textSize="16sp" />
+
+    <ImageView android:id="@+id/imageView2"
+        android:layout_width="84dp"
+        android:layout_height="116dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="540dp"
+        app:srcCompat="@drawable/brah" />
+
+
+
+
+
+
+
+</RelativeLayout>
+
+
