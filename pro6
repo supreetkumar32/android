@@ -1,0 +1,189 @@
+“city.xml”
+<?xml version="1.0" ?> 
+<records> 
+<place> 
+<cityname>mysore</cityname> 
+<lat>96.95</lat> 
+<long>76.3</long> 
+<temp>22</temp> 
+<humidity>90%</humidity> 
+</place> 
+<place> 
+<cityname>Bangalore</cityname> 
+<lat>96.98</lat> 
+<long>76.73</long> 
+<temp>20</temp> 
+<humidity>80%</humidity> 
+</place> 
+</records>
+
+city.json”////////////////////////
+[ 
+ { 
+ "name": "mysore", 
+ "lat": "96.95", 
+ "long": "76.63", 
+ "temp": "22", 
+ "humidity": "90%" 
+ }, 
+ { 
+ "name": "Bangalore", 
+ "lat": "96.97", 
+ "long": "76.76", 
+ "temp": "20", 
+"humidity": "80%" 
+ } 
+]
+
+/////////////
+
+Activity_main.xml 
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" 
+xmlns:tools="http://schemas.android.com/tools" 
+android:layout_width="match_parent" 
+android:layout_height="match_parent" 
+android:orientation="vertical" 
+tools:context=".MainActivity"> 
+<TextView 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:text="XML and JSON Parser" 
+android:textSize="30sp" 
+android:textAlignment="center" 
+/> 
+<Button 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:onClick="XMLParser" 
+android:text="XMLParser" 
+android:textAlignment="center" 
+/> 
+<Button 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:onClick="JSONParser" 
+android:text="JSONParser" 
+android:textAlignment="center" 
+/> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<TextView 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/resxml" 
+android:textSize="15sp" 
+android:textAlignment="center" 
+android:paddingLeft="10dp" 
+android:paddingRight="40dp" 
+/> 
+<TextView 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/resjson" 
+android:textSize="15sp" 
+android:textAlignment="center" 
+android:paddingLeft="40dp" 
+/> 
+</LinearLayout> 
+</LinearLayout>
+
+  ///////////////
+  JAVA Code:
+MainActivity.java 
+package com.example.labpgm6; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.os.Bundle; 
+import android.view.View; 
+import android.widget.TextView; 
+import org.json.JSONArray; 
+import org.json.JSONException; 
+import org.json.JSONObject; 
+import org.w3c.dom.Document; 
+import org.w3c.dom.Element; 
+import org.w3c.dom.Node; 
+import org.w3c.dom.NodeList; 
+import org.xml.sax.SAXException; 
+import java.io.IOException; 
+import java.io.InputStream; 
+import javax.xml.parsers.DocumentBuilder; 
+import javax.xml.parsers.DocumentBuilderFactory; 
+import javax.xml.parsers.ParserConfigurationException; 
+public class MainActivity extends AppCompatActivity { 
+TextView resxml, resjson; 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { 
+super.onCreate(savedInstanceState); 
+ setContentView(R.layout.activity_main); 
+resxml=findViewById(R.id.resxml); 
+resjson=findViewById(R.id.resjson); 
+ } 
+public void XMLParser(View v) 
+ { 
+try { 
+ InputStream is=getAssets().open("city.xml"); 
+ DocumentBuilderFactory 
+dbFactory=DocumentBuilderFactory.newInstance(); 
+ DocumentBuilder dBuilder=dbFactory.newDocumentBuilder(); 
+ Document doc=dBuilder.parse(is); 
+ Element element=doc.getDocumentElement(); 
+ element.normalize(); 
+ NodeList nList=doc.getElementsByTagName("place"); 
+resxml.setText("XML DATA"); 
+for(int i=0;i<nList.getLength();i++) 
+ { 
+ Node node=nList.item(i); 
+if(node.getNodeType()==Node.ELEMENT_NODE) 
+ { 
+ Element element2=(Element)node; 
+resxml.setText(resxml.getText()+"\n City 
+Name:"+getvalue("cityname",element2)+"\n"); 
+resxml.setText(resxml.getText()+"\n Lat:"+getvalue("lat",element2)+"\n"); 
+resxml.setText(resxml.getText()+"\n Long 
+Name:"+getvalue("long",element2)+"\n"); 
+resxml.setText(resxml.getText()+"\n
+Temperature:"+getvalue("temp",element2)+"\n"); 
+resxml.setText(resxml.getText()+"\n
+Humidity:"+getvalue("humidity",element2)+"\n"); 
+resxml.setText(resxml.getText()+"\n ................................."); 
+ } 
+  } 
+catch (IOException | ParserConfigurationException | SAXException e) { 
+ e.printStackTrace(); 
+ } 
+ } 
+private static String getvalue(String tag, Element element) 
+ { 
+ NodeList 
+nodeList=element.getElementsByTagName(tag).item(0).getChildNodes(); 
+ Node node=nodeList.item(0); 
+return node.getNodeValue(); 
+ } 
+public void JSONParser(View v) throws IOException, JSONException { 
+ String json; 
+ InputStream is=getAssets().open("city1.json"); 
+int size=is.available(); 
+byte[] buffer=new byte[size]; 
+ is.read(buffer); 
+ is.close(); 
+ json=new String(buffer, "UTF-8"); 
+ JSONArray jsonArray=new JSONArray(json); 
+resjson.setText("JSON DATA"); 
+for(int i=0; i<jsonArray.length(); i++) 
+ { 
+ JSONObject obj=jsonArray.getJSONObject(i); 
+resjson.setText(resjson.getText()+"\n City Name:"+obj.getString("name")+"\n"); 
+resjson.setText(resjson.getText()+"\n Lat:"+obj.getString("lat")+"\n"); 
+resjson.setText(resjson.getText()+"\n Long:"+obj.getString("long")+"\n"); 
+resjson.setText(resjson.getText()+"\n
+Temperature:"+obj.getString("temp")+"\n"); 
+resjson.setText(resjson.getText()+"\n
+Humidity:"+obj.getString("humidity")+"\n"); 
+resjson.setText(resjson.getText()+"\n..............................."); 
+ } 
+ } 
+} 
