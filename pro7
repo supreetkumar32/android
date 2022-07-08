@@ -1,0 +1,109 @@
+Activity_main.xml 
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" 
+xmlns:tools="http://schemas.android.com/tools" 
+android:layout_width="match_parent" 
+android:layout_height="match_parent" 
+android:orientation="vertical" 
+tools:context=".MainActivity"> 
+<TextView 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:text="Text To Speech" 
+android:textAlignment="center" 
+android:textColor="@color/material_on_background_emphasis_high_type" 
+android:textSize="25sp" /> 
+<EditText 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:id="@+id/pitch" 
+android:hint="Enter pitch(1.0 is normal)" 
+android:textAlignment="center" 
+android:textSize="15sp" 
+/> 
+<EditText 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:id="@+id/speechrate" 
+android:hint="Enter Speech rate(1.0 is normal" 
+android:textAlignment="center" 
+android:textSize="15sp" 
+/> 
+<EditText 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:id="@+id/texttospeech" 
+android:textSize="25sp" 
+android:textAlignment="center" 
+android:hint="Enter text to speek" 
+/> 
+<Button 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:id="@+id/speek" 
+android:text="Text to speech" 
+android:textAlignment="center" 
+android:onClick="speak" 
+/> 
+</LinearLayout> 
+JAVA Code:
+MainActivity.java 
+package com.example.myapplication; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.os.Bundle; 
+import android.speech.tts.TextToSpeech; 
+import android.view.View; 
+import android.widget.Button; 
+import android.widget.EditText; 
+import android.widget.Toast; 
+import java.util.Locale; 
+public class MainActivity extends AppCompatActivity { 
+ EditText pitch,rate,texttospeech; 
+ Button speak; 
+ TextToSpeech t; 
+ @Override 
+protected void onCreate(Bundle savedInstanceState) { 
+super.onCreate(savedInstanceState); 
+ setContentView(R.layout.activity_main); 
+ pitch=findViewById(R.id.pitch); 
+ rate=findViewById(R.id.speechrate); 
+ texttospeech=findViewById(R.id.texttospeech);
+ t=new TextToSpeech(this, new TextToSpeech.OnInitListener() { 
+ @Override 
+public void onInit(int status) { 
+if(status==TextToSpeech.SUCCESS) 
+ { 
+ t.setLanguage(Locale.UK); 
+//t.setLanguage(Locale.ENGLISH ); 
+} 
+else 
+{ 
+ Toast.makeText(MainActivity.this, "text to Speech could 
+not be initialized", Toast.LENGTH_LONG).show(); 
+ } 
+ } 
+ }); 
+ } 
+public void speak(View v) 
+ { 
+ String text=texttospeech.getText().toString(); 
+if(pitch.getText().toString().equals("")) 
+ { 
+ t.setPitch(1.0f); 
+ } 
+else 
+{ 
+ t.setPitch(Float.parseFloat(pitch.getText().toString())); 
+ } 
+if(rate.getText().toString().equals("")) 
+ { 
+ t.setSpeechRate(1.0f); 
+ } 
+else 
+{ 
+ t.setSpeechRate(Float.parseFloat(rate.getText().toString())); 
+ } 
+ t.speak(text,TextToSpeech.QUEUE_FLUSH, null); 
+ } 
+} 
