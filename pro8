@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" 
+xmlns:tools="http://schemas.android.com/tools" 
+android:layout_width="match_parent" 
+android:layout_height="match_parent" 
+android:orientation="vertical" 
+tools:context=".MainActivity"> 
+<TextView 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content" 
+android:text="CALL AND SAVE APPLICATION" 
+android:textSize="25sp" 
+android:textColor="@color/black" 
+android:textAlignment="center"/> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center" > 
+<EditText 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/number" 
+android:hint="Enter the Number to Dial/Save" 
+android:textAlignment="center"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:text="Del" 
+android:id="@+id/delete" 
+android:onClick="delete"/> 
+</LinearLayout> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/one" 
+android:text="1" 
+android:onClick="one"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/two" 
+android:text="2" 
+android:onClick="two"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/three" 
+android:text="3" 
+android:onClick="three" /> 
+</LinearLayout> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/four" 
+android:text="4" 
+android:onClick="four" /> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/five" 
+android:text="5" 
+android:onClick="five" /> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/six" 
+android:text="6" 
+android:onClick="six" /> 
+</LinearLayout> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/seven" 
+android:text="7" 
+android:onClick="seven" /> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/eight" 
+android:text="8" 
+android:onClick="eight" /> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/nine" 
+android:text="9"
+android:onClick="nine" /> 
+</LinearLayout> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/star" 
+android:text="*" 
+android:onClick="star"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/zero" 
+android:text="0" 
+android:onClick="zero"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/hash" 
+android:text="#" 
+android:onClick="hash"/> 
+</LinearLayout> 
+<LinearLayout 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:orientation="horizontal" 
+android:layout_gravity="center"> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/call" 
+android:text="CALL" 
+android:onClick="call"/> 
+<Button 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:id="@+id/save" 
+android:text="SAVE" 
+android:onClick="save"/> 
+</LinearLayout> 
+</LinearLayout> 
+
+MainActivity.java 
+package com.example.labpgm8; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.content.Intent; 
+import android.net.Uri; 
+import android.os.Bundle; 
+import android.provider.ContactsContract; 
+import android.view.View; 
+import android.widget.EditText; 
+public class MainActivity extends AppCompatActivity { 
+ EditText num; 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { 
+super.onCreate(savedInstanceState); 
+ setContentView(R.layout.activity_main); 
+num=findViewById(R.id.number); 
+ } 
+public void delete(View v) 
+ { 
+ String mynum=num.getText().toString(); 
+ mynum=mynum.substring(0,mynum.length()-1); 
+num.setText(mynum); 
+ } 
+public void one(View v) 
+ { 
+num.append("1"); 
+ } 
+public void two(View v) 
+ { 
+num.append("2"); 
+ } 
+public void three(View v) 
+ { 
+num.append("3"); 
+ } 
+public void four(View v) 
+ { 
+num.append("4"); 
+ } 
+public void five(View v) 
+ { 
+num.append("5"); 
+ } 
+public void six(View v) 
+ { 
+num.append("6"); 
+ } 
+public void seven(View v) 
+ { 
+num.append("7"); 
+ } 
+public void eight(View v) 
+{ 
+num.append("8"); 
+ } 
+public void nine(View v) 
+ { 
+num.append("9"); 
+ } 
+public void star(View v) 
+ { 
+num.append("*"); 
+ } 
+public void zero(View v) 
+ { 
+num.append("0"); 
+ } 
+public void hash(View v) 
+ { 
+num.append("#"); 
+ } 
+public void call(View v) 
+ { 
+ String mynum=num.getText().toString(); 
+ Intent i=new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+mynum)); 
+ startActivity(i); 
+ } 
+public void save(View v) 
+ { 
+ String mynum=num.getText().toString(); 
+ Intent i=new Intent(Intent.ACTION_INSERT, 
+ContactsContract.Contacts.CONTENT_URI); 
+ i.putExtra(ContactsContract.Intents.Insert.PHONE,mynum); 
+ startActivity(i); 
+ } 
+}
